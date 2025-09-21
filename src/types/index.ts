@@ -34,9 +34,9 @@ export interface PracticalInfo {
     localTransport: string[];
   };
   weatherInfo: string;
-  usefulPhrases: Array<{
-    english: string;
+  usefulPhrases: {
     chinese: string;
+    english: string;
     pronunciation: string;
-  }>;
+  }[];
 }

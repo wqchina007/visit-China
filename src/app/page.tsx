@@ -1,8 +1,16 @@
+'use client';
+
 import { cities } from '@/lib/data/cities';
 import Link from 'next/link';
 import ResponsiveImage from '@/components/common/ResponsiveImage';
+import SearchBar from '@/components/common/SearchBar';
+import FeaturedAttractions from '@/components/attractions/FeaturedAttractions';
+import { useState } from 'react';
+import { City } from '@/types';
 
 export default function Home() {
+  const [searchResults, setSearchResults] = useState<City[]>(cities);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-[60vh] bg-gray-900 w-full overflow-hidden">
@@ -28,14 +36,18 @@ export default function Home() {
       </div>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mb-12">
+          <SearchBar cities={cities} onSearch={setSearchResults} />
+        </div>
+        
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-          Popular Destinations
+          {searchResults.length < cities.length ? 'Search Results' : 'Popular Destinations'}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cities.map((city) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {searchResults.map((city) => (
             <Link
               key={city.id}
-              href={`/city/${city.slug}`}
+              href={`/cities/${city.slug}`}
               className="group block"
             >
               <div className="relative rounded-lg shadow-md overflow-hidden">
@@ -59,6 +71,13 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          Featured Attractions
+        </h2>
+        <FeaturedAttractions cities={cities} />
       </section>
 
       <section className="bg-white py-12">
