@@ -1,15 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config) => {
-    config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300,
+import type { Configuration } from 'webpack';
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  webpack: (config: Configuration) => {
+    if (!config.watchOptions) {
+      config.watchOptions = {};
     }
-    return config
-  },
-  server: {
-    host: '0.0.0.0',
-    port: 3000,
+    config.watchOptions.poll = 1000;
+    config.watchOptions.aggregateTimeout = 300;
+    return config;
   },
   images: {
     remotePatterns: [],
