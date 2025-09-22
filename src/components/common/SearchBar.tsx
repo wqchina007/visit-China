@@ -5,7 +5,7 @@ import { useState, type FC } from 'react';
 
 interface SearchBarProps {
   cities: City[];
-  onSearch: (results: City[]) => void;
+  onSearch?: (results: City[]) => void;
 }
 
 const SearchBar: FC<SearchBarProps> = ({ cities, onSearch }) => {
@@ -20,7 +20,7 @@ const SearchBar: FC<SearchBarProps> = ({ cities, onSearch }) => {
         city.name.zh.includes(term)
       );
     });
-    onSearch(results);
+    onSearch?.(results);
   };
 
   return (
