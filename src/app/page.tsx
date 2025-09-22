@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ResponsiveImage from '@/components/common/ResponsiveImage';
 import SearchBar from '@/components/common/SearchBar';
 import FeaturedAttractions from '@/components/attractions/FeaturedAttractions';
+import HeroCarousel from '@/components/common/HeroCarousel';
 import { useState } from 'react';
 import { City } from '@/types';
 
@@ -13,27 +14,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-[60vh] bg-gray-900 w-full overflow-hidden">
-        <ResponsiveImage
-          src="/images/hero.jpg"
-          alt="China landscape"
-          type="hero"
-          fill
-          priority
-          containerClassName="absolute inset-0 w-full h-full"
-          className="opacity-80"
-        />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div className="text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Discover China
-            </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto px-4">
-              Experience the beauty of ancient civilization
-            </p>
-          </div>
-        </div>
-      </div>
+      <HeroCarousel />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">

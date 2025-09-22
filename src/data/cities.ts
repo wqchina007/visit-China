@@ -117,4 +117,166 @@ export const cities: City[] = [
       ],
     },
   },
+  {
+    id: 'chengdu',
+    slug: 'chengdu',
+    name: {
+      en: 'Chengdu',
+      zh: '成都',
+    },
+    description: 'Chengdu, the capital of Sichuan province, is famous for its spicy cuisine, giant pandas, and laid-back lifestyle. Known as the "Land of Abundance", it offers a perfect blend of modern city life and traditional Chinese culture.',
+    imageUrl: '/images/cities/chengdu.jpg',
+    attractions: [
+      {
+        id: 'giant-panda-breeding',
+        name: {
+          en: 'Giant Panda Breeding Research Base',
+          zh: '成都大熊猫繁育研究基地',
+        },
+        description: 'The world-famous panda base is home to over 200 giant pandas and red pandas. Watch these adorable creatures play, eat bamboo, and learn about conservation efforts.',
+        imageUrl: '/images/attractions/giant-panda-base.jpg',
+        openingHours: '7:30 AM - 6:00 PM',
+        ticketPrice: {
+          amount: 55,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'jinli-ancient-street',
+        name: {
+          en: 'Jinli Ancient Street',
+          zh: '锦里古街',
+        },
+        description: 'A beautifully restored ancient street showcasing traditional Sichuan architecture, local crafts, and delicious street food. Perfect for experiencing local culture and shopping for souvenirs.',
+        imageUrl: '/images/attractions/jinli-street.jpg',
+        openingHours: 'Always open',
+        ticketPrice: {
+          amount: 0,
+          currency: 'CNY',
+        },
+      },
+      
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'Spring (March to May) and Autumn (September to November) offer the most comfortable weather. Avoid summer heat and winter fog.',
+      transportation: {
+        airport: 'Chengdu Shuangliu International Airport (CTU)',
+        trainStation: 'Chengdu Railway Station',
+        localTransport: [
+          'Metro - modern subway system covering major attractions',
+          'Bus - extensive public bus network',
+          'Taxi - affordable and convenient',
+          'Bike sharing - popular for short distances',
+        ],
+      },
+      weatherInfo: 'Subtropical monsoon climate with four distinct seasons. Hot and humid summers, mild winters. Frequent fog and overcast skies.',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+        {
+          english: 'How much?',
+          chinese: '多少钱',
+          pronunciation: 'Duōshao qián',
+        },
+        {
+          english: 'Where is...?',
+          chinese: '在哪里',
+          pronunciation: 'Zài nǎlǐ',
+        },
+      ],
+    },
+  },
+  {
+    id: 'hangzhou',
+    slug: 'hangzhou',
+    name: {
+      en: 'Hangzhou',
+      zh: '杭州',
+    },
+    description: 'Hangzhou, the capital of Zhejiang province, is renowned for its natural beauty and historical heritage. Famous for West Lake, a UNESCO World Heritage site, and as the home of Alibaba and Chinese tea culture.',
+    imageUrl: '/images/cities/hangzhou.jpg',
+    attractions: [
+      {
+        id: 'west-lake',
+        name: {
+          en: 'West Lake',
+          zh: '西湖',
+        },
+        description: 'A UNESCO World Heritage site featuring stunning scenery with pagodas, gardens, and causeways. Perfect for boat rides and scenic walks.',
+        imageUrl: '/images/attractions/west-lake.jpg',
+        openingHours: 'Always open',
+        ticketPrice: {
+          amount: 0,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'lingyin-temple',
+        name: {
+          en: 'Lingyin Temple',
+          zh: '灵隐寺',
+        },
+        description: 'One of the largest and wealthiest Buddhist temples in China, founded in 328 AD with beautiful grottoes and ancient carvings.',
+        imageUrl: '/images/attractions/lingyin-temple.jpg',
+        openingHours: '7:00 AM - 6:00 PM',
+        ticketPrice: {
+          amount: 45,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'leifeng-pagoda',
+        name: {
+          en: 'Leifeng Pagoda',
+          zh: '雷峰塔',
+        },
+        description: 'A reconstructed five-story octagonal pagoda on Sunset Hill overlooking West Lake, famous from the Legend of the White Snake.',
+        imageUrl: '/images/attractions/leifeng-pagoda.jpg',
+        openingHours: '8:00 AM - 5:30 PM',
+        ticketPrice: {
+          amount: 40,
+          currency: 'CNY',
+        },
+      },
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'Spring (March-May) for cherry blossoms and Autumn (September-November) for comfortable weather and fall colors.',
+      transportation: {
+        airport: 'Hangzhou Xiaoshan International Airport (HGH)',
+        trainStation: 'Hangzhou Railway Station',
+        localTransport: [
+          'Metro - modern subway system connecting major attractions',
+          'Bus - extensive public transport network',
+          'Bike sharing - popular for exploring West Lake area',
+          'Taxi - convenient and affordable',
+        ],
+      },
+      weatherInfo: 'Subtropical monsoon climate with four distinct seasons. Hot summers, mild winters, and beautiful spring/autumn seasons.',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+        {
+          english: 'How much?',
+          chinese: '多少钱',
+          pronunciation: 'Duōshao qián',
+        },
+      ],
+    },
+  },
 ];

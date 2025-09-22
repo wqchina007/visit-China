@@ -111,4 +111,150 @@ export const cities: City[] = [
       ],
     },
   },
+  {
+    id: '3',
+    slug: 'chengdu',
+    name: {
+      en: 'Chengdu',
+      zh: '成都',
+    },
+    description: 'Chengdu, the capital of Sichuan province, is famous for its spicy cuisine, giant pandas, and laid-back lifestyle. Known as the "Land of Abundance", it offers a perfect blend of modern city life and traditional Chinese culture.',
+    imageUrl: '/images/cities/chengdu.jpg',
+    attractions: [
+      {
+        id: 'cd-1',
+        name: {
+          en: 'Giant Panda Breeding Research Base',
+          zh: '成都大熊猫繁育研究基地',
+        },
+        description: 'The world-famous panda base is home to over 200 giant pandas and red pandas. Watch these adorable creatures play, eat bamboo, and learn about conservation efforts.',
+        imageUrl: '/images/attractions/giant-panda-base.jpg',
+        openingHours: '7:30 AM - 6:00 PM',
+        ticketPrice: {
+          amount: 55,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'cd-2',
+        name: {
+          en: 'Jinli Ancient Street',
+          zh: '锦里古街',
+        },
+        description: 'A beautifully restored ancient street showcasing traditional Sichuan architecture, local crafts, and delicious street food. Perfect for experiencing local culture.',
+        imageUrl: '/images/attractions/jinli-street.jpg',
+        openingHours: 'Always open',
+        ticketPrice: {
+          amount: 0,
+          currency: 'CNY',
+        },
+      },
+      
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'Spring (March-May) and Autumn (September-November) offer the most comfortable weather.',
+      transportation: {
+        airport: 'Chengdu Shuangliu International Airport (CTU)',
+        trainStation: 'Chengdu Railway Station',
+        localTransport: [
+          'Metro - modern subway system covering major attractions',
+          'Bus - extensive public bus network',
+          'Taxi - affordable and convenient',
+        ],
+      },
+      weatherInfo: 'Subtropical monsoon climate with hot summers and mild winters.',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+      ],
+    },
+  },
+  {
+    id: '4',
+    slug: 'hangzhou',
+    name: {
+      en: 'Hangzhou',
+      zh: '杭州',
+    },
+    description: 'Hangzhou, the capital of Zhejiang province, is renowned for its natural beauty and historical heritage. Famous for West Lake, a UNESCO World Heritage site, and as the home of Alibaba and Chinese tea culture.',
+    imageUrl: '/images/cities/hangzhou.jpg',
+    attractions: [
+      {
+        id: 'hz-1',
+        name: {
+          en: 'West Lake',
+          zh: '西湖',
+        },
+        description: 'A UNESCO World Heritage site featuring stunning scenery with pagodas, gardens, and causeways.',
+        imageUrl: '/images/attractions/west-lake.jpg',
+        openingHours: 'Always open',
+        ticketPrice: {
+          amount: 0,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'hz-2',
+        name: {
+          en: 'Lingyin Temple',
+          zh: '灵隐寺',
+        },
+        description: 'One of the largest and wealthiest Buddhist temples in China, founded in 328 AD.',
+        imageUrl: '/images/attractions/lingyin-temple.jpg',
+        openingHours: '7:00 AM - 6:00 PM',
+        ticketPrice: {
+          amount: 45,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'hz-3',
+        name: {
+          en: 'Leifeng Pagoda',
+          zh: '雷峰塔',
+        },
+        description: 'A reconstructed five-story octagonal pagoda overlooking West Lake.',
+        imageUrl: '/images/attractions/leifeng-pagoda.jpg',
+        openingHours: '8:00 AM - 5:30 PM',
+        ticketPrice: {
+          amount: 40,
+          currency: 'CNY',
+        },
+      },
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'Spring (March-May) and Autumn (September-November)',
+      transportation: {
+        airport: 'Hangzhou Xiaoshan International Airport (HGH)',
+        trainStation: 'Hangzhou Railway Station',
+        localTransport: [
+          'Metro - modern subway system',
+          'Bus - extensive public transport',
+          'Bike sharing - popular for West Lake',
+          'Taxi - convenient and affordable',
+        ],
+      },
+      weatherInfo: 'Subtropical monsoon climate with four distinct seasons',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+      ],
+    },
+  },
 ];

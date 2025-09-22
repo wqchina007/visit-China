@@ -1,8 +1,7 @@
 'use client';
 
 import { City } from '@/types';
-import { FC, useState } from 'react';
-import Image from 'next/image';
+import { FC, useState, useEffect } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
@@ -11,88 +10,169 @@ interface FeaturedAttractionsProps {
 }
 
 const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
-  // 获取所有城市的主要景点
+  // Get all attractions from all cities
   const allAttractions = cities.flatMap((city) =>
     city.attractions.map((attraction) => ({
       ...attraction,
-      cityId: city.id,
+      citySlug: city.slug,
       cityName: city.name,
     }))
   );
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const attractionsToShow = 3; // 一次显示的景点数量
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const handlePrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? allAttractions.length - attractionsToShow : prev - 1
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === allAttractions.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev + attractionsToShow >= allAttractions.length ? 0 : prev + 1
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? allAttractions.length - 1 : prevIndex - 1
     );
   };
 
-  // 获取当前要显示的景点
-  const visibleAttractions = [...allAttractions, ...allAttractions].slice(
-    currentIndex,
-    currentIndex + attractionsToShow
-  );
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAutoPlaying]);
 
   return (
-    <div className="relative">
-      <div className="flex items-center space-x-6">
+    <div className="relative max-w-7xl mx-auto">
+      {/* Main carousel container */}
+      <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+        {/* Images */}
+        <div className="relative h-full">
+          {allAttractions.map((attraction, index) => (
+            <div
+              key={`${attraction.id}-${index}`}
+              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                index === currentIndex 
+                  ? 'opacity-100 translate-x-0' 
+                  : index < currentIndex 
+                    ? 'opacity-0 -translate-x-full' 
+                    : 'opacity-0 translate-x-full'
+              }`}
+            >
+              <Link href={`/cities/${attraction.citySlug}`} className="block h-full">
+                <div className="relative h-full group">
+                  <img
+                    src={attraction.imageUrl}
+                    alt={`${attraction.name.en} - ${attraction.name.zh}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  
+                  {/* Content overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                    <div className="max-w-2xl">
+                      <div className="inline-block px-3 py-1 mb-3 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                        {attraction.cityName.en} • {attraction.cityName.zh}
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                        {attraction.name.en}
+                        <span className="text-lg md:text-xl font-normal ml-2 opacity-90">
+                          ({attraction.name.zh})
+                        </span>
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-200 mb-4 line-clamp-2">
+                        {attraction.description}
+                      </p>
+                      <div className="flex items-center space-x-4">
+                        <span className="text-lg font-semibold">
+                          {attraction.ticketPrice.amount > 0
+                            ? `¥${attraction.ticketPrice.amount}`
+                            : 'Free Entry'}
+                        </span>
+                        <span className="text-sm opacity-75">
+                          {attraction.openingHours}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation arrows */}
         <button
-          onClick={handlePrevious}
-          className="absolute left-0 z-10 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors"
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all text-white shadow-lg"
+          aria-label="Previous attraction"
         >
           <ChevronLeftIcon className="h-6 w-6" />
         </button>
 
-        <div className="overflow-hidden mx-8">
-          <div className="flex space-x-6 transition-transform duration-300">
-            {visibleAttractions.map((attraction, index) => (
-              <Link
-                key={`${attraction.id}-${index}`}
-                href={`/cities/${attraction.cityId}`}
-                className="flex-none w-[calc(33.333%-1rem)] group"
-              >
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                  <Image
-                    src={attraction.imageUrl}
-                    alt={`${attraction.name.en} - ${attraction.name.zh}`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="text-lg font-semibold mb-1">
-                      {attraction.name.en}
-                      <span className="text-sm font-normal ml-2">
-                        ({attraction.name.zh})
-                      </span>
-                    </h3>
-                    <p className="text-sm text-gray-200">
-                      {attraction.ticketPrice.amount > 0
-                        ? `¥${attraction.ticketPrice.amount}`
-                        : 'Free Entry'}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
         <button
-          onClick={handleNext}
-          className="absolute right-0 z-10 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors"
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all text-white shadow-lg"
+          aria-label="Next attraction"
         >
           <ChevronRightIcon className="h-6 w-6" />
         </button>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+          {allAttractions.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentIndex 
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to attraction ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Auto-play control */}
+        <button
+          onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+          className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all text-white text-sm"
+        >
+          {isAutoPlaying ? '⏸️' : '▶️'}
+        </button>
+
+        {/* Attraction counter */}
+        <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm">
+          {currentIndex + 1} / {allAttractions.length}
+        </div>
+      </div>
+
+      {/* Attraction thumbnails */}
+      <div className="mt-6 flex space-x-2 overflow-x-auto pb-2">
+        {allAttractions.map((attraction, index) => (
+          <button
+            key={`thumb-${attraction.id}-${index}`}
+            onClick={() => goToSlide(index)}
+            className={`flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden transition-all ${
+              index === currentIndex 
+                ? 'ring-2 ring-blue-500 scale-110' 
+                : 'opacity-70 hover:opacity-100'
+            }`}
+          >
+            <img
+              src={attraction.imageUrl}
+              alt={attraction.name.en}
+              className="w-full h-full object-cover"
+            />
+          </button>
+        ))}
       </div>
     </div>
   );
