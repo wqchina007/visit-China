@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import ResponsiveImage from '@/components/common/ResponsiveImage';
+import Image from 'next/image';
 import { cities } from '@/data/cities';
 import { City, Attraction } from '@/types';
 
@@ -17,6 +17,42 @@ export async function generateStaticParams() {
   return cities.map((city) => ({
     slug: city.slug,
   }));
+}
+
+// SEO metadata generation
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const city = cities.find((c) => c.slug === slug);
+  
+  if (!city) {
+    return {
+      title: 'City Not Found - Visit China',
+      description: 'The requested city could not be found.',
+    };
+  }
+
+  return {
+    title: `${city.name.en} (${city.name.zh}) Travel Guide - Visit China`,
+    description: city.description,
+    openGraph: {
+      title: `${city.name.en} Travel Guide - Visit China`,
+      description: city.description,
+      images: [
+        {
+          url: city.imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${city.name.en} - ${city.name.zh}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${city.name.en} Travel Guide - Visit China`,
+      description: city.description,
+      images: [city.imageUrl],
+    },
+  };
 }
 
 // Main component
@@ -71,10 +107,12 @@ export default async function CityPage({ params }: CityPageProps) {
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <div className="relative aspect-[4/3]">
-                  <img
+                  <Image
                     src={attraction.imageUrl}
-                    alt={`${attraction.name.en} - ${attraction.name.zh}`}
-                    className="w-full h-full object-cover"
+                    alt={`${attraction.name.en} (${attraction.name.zh}) - ${attraction.description.substring(0, 50)}...`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-4">

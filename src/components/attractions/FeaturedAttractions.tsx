@@ -2,6 +2,7 @@
 
 import { City } from '@/types';
 import { FC, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
@@ -42,11 +43,13 @@ const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prevIndex) => 
+        prevIndex === allAttractions.length - 1 ? 0 : prevIndex + 1
+      );
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [currentIndex, isAutoPlaying]);
+  }, [currentIndex, isAutoPlaying, allAttractions.length]);
 
   return (
     <div className="relative max-w-7xl mx-auto">
@@ -67,10 +70,13 @@ const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
             >
               <Link href={`/cities/${attraction.citySlug}`} className="block h-full">
                 <div className="relative h-full group">
-                  <img
+                  <Image
                     src={attraction.imageUrl}
-                    alt={`${attraction.name.en} - ${attraction.name.zh}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    alt={`${attraction.name.en} (${attraction.name.zh}) - ${attraction.description.substring(0, 100)}...`}
+                    fill
+                    priority={index === 0}
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                   
@@ -111,7 +117,7 @@ const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all text-white shadow-lg"
-          aria-label="Previous attraction"
+          aria-label={`Previous attraction: ${allAttractions[(currentIndex - 1 + allAttractions.length) % allAttractions.length]?.name.en}`}
         >
           <ChevronLeftIcon className="h-6 w-6" />
         </button>
@@ -119,7 +125,7 @@ const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
         <button
           onClick={nextSlide}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all text-white shadow-lg"
-          aria-label="Next attraction"
+          aria-label={`Next attraction: ${allAttractions[(currentIndex + 1) % allAttractions.length]?.name.en}`}
         >
           <ChevronRightIcon className="h-6 w-6" />
         </button>
@@ -166,10 +172,13 @@ const FeaturedAttractions: FC<FeaturedAttractionsProps> = ({ cities }) => {
                 : 'opacity-70 hover:opacity-100'
             }`}
           >
-            <img
+            <Image
               src={attraction.imageUrl}
               alt={attraction.name.en}
+              width={96}
+              height={96}
               className="w-full h-full object-cover"
+              sizes="96px"
             />
           </button>
         ))}

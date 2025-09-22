@@ -1,42 +1,63 @@
-'use client';
-
+import { Metadata } from 'next';
+import Image from 'next/image';
 import { cities } from '@/lib/data/cities';
 import Link from 'next/link';
-import ResponsiveImage from '@/components/common/ResponsiveImage';
 import SearchBar from '@/components/common/SearchBar';
-import FeaturedAttractions from '@/components/attractions/FeaturedAttractions';
 import HeroCarousel from '@/components/common/HeroCarousel';
-import { useState } from 'react';
+import FeaturedAttractions from '@/components/attractions/FeaturedAttractions';
 import { City } from '@/types';
 
-export default function Home() {
-  const [searchResults, setSearchResults] = useState<City[]>(cities);
+export const metadata: Metadata = {
+  title: 'Visit China - Discover Amazing Destinations',
+  description: 'Explore Beijing, Shanghai, Chengdu, and Hangzhou. Find travel guides, attractions, and practical information for your China adventure.',
+  openGraph: {
+    title: 'Visit China - Your Ultimate Travel Guide',
+    description: 'Discover the best destinations in China with comprehensive travel guides, attractions, and practical information.',
+    images: [
+      {
+        url: '/images/hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Beautiful China landscape',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Visit China - Your Ultimate Travel Guide',
+    description: 'Discover the best destinations in China with comprehensive travel guides.',
+    images: ['/images/hero.jpg'],
+  },
+};
 
+export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <HeroCarousel />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
-          <SearchBar cities={cities} onSearch={setSearchResults} />
+          <SearchBar cities={cities} />
         </div>
         
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-          {searchResults.length < cities.length ? 'Search Results' : 'Popular Destinations'}
+          Popular Destinations
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {searchResults.map((city) => (
+          {cities.map((city) => (
             <Link
               key={city.id}
               href={`/cities/${city.slug}`}
               className="group block"
             >
               <div className="relative rounded-lg shadow-md overflow-hidden">
-                <ResponsiveImage
+                <Image
                   src={city.imageUrl}
-                  alt={city.name.en}
-                  type="cityCard"
-                  className="group-hover:scale-105 transition-transform duration-200"
+                  alt={`${city.name.en} (${city.name.zh}) - ${city.description.substring(0, 50)}...`}
+                  width={400}
+                  height={256}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-200"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">

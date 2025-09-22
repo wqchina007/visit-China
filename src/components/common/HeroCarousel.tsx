@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 interface HeroImage {
@@ -84,10 +85,13 @@ export default function HeroCarousel() {
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover"
+              fill
+              priority={index === 0}
+              className="object-cover"
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
             
