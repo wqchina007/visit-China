@@ -13,18 +13,21 @@ export const metadata: Metadata = {
   description: "Explore the most beautiful cities in China with comprehensive travel guides and local insights.",
 };
 
+import { Analytics } from '@vercel/analytics/next';
+ 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
-        <Navbar />
-        <main className="pt-16">
-          {children}
-        </main>
+      <head>
+        <title>Next.js</title>
+      </head>
+      <body>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
