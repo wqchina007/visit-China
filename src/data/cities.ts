@@ -90,6 +90,34 @@ export const cities: City[] = [
           currency: 'CNY',
         },
       },
+      {
+        id: 'disneyland',
+        name: {
+          en: 'Shanghai Disney Resort',
+          zh: '上海迪士尼乐园',
+        },
+        description: 'The first Disney resort in mainland China, featuring the largest Disney castle, themed lands, and world-class entertainment. Perfect for families and Disney fans.',
+        imageUrl: '/images/attractions/shanghai-disneyland.jpg',
+        openingHours: '8:30 AM - 9:30 PM',
+        ticketPrice: {
+          amount: 475,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'zhujiajiao',
+        name: {
+          en: 'Zhujiajiao Water Town',
+          zh: '朱家角古镇',
+        },
+        description: 'A picturesque ancient water town with over 1,700 years of history, featuring traditional bridges, canals, and Ming-Qing architecture. Known as the "Venice of Shanghai".',
+        imageUrl: '/images/attractions/zhujiajiao-water-town.jpg',
+        openingHours: '8:30 AM - 5:00 PM',
+        ticketPrice: {
+          amount: 60,
+          currency: 'CNY',
+        },
+      },
     ],
     practicalInfo: {
       bestTimeToVisit: 'Spring (March to May) and Autumn (September to November) offer the most pleasant weather for exploring the city.',

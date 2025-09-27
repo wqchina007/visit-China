@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { cities } from '@/lib/data/cities';
+import { cities } from '@/data/cities';
 import HeroCarousel from '@/components/common/HeroCarousel';
 import FeaturedAttractions from '@/components/attractions/FeaturedAttractions';
 import PopularDestinations from '@/components/common/PopularDestinations';
