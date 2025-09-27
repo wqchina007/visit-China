@@ -41,6 +41,18 @@ const heroImages: HeroImage[] = [
     alt: 'Chengdu landscape',
     title: 'Visit Chengdu',
     subtitle: 'Home of giant pandas and spicy cuisine'
+  },
+  {
+    src: '/images/cities/xian.jpg',
+    alt: 'Xi\'an Terracotta Army',
+    title: 'Explore Xi\'an',
+    subtitle: 'Ancient capital with 3,000 years of history'
+  },
+  {
+    src: '/images/cities/hongkong.jpg',
+    alt: 'Hong Kong skyline',
+    title: 'Experience Hong Kong',
+    subtitle: 'Where East meets West in modern metropolis'
   }
 ];
 
@@ -75,7 +87,7 @@ export default function HeroCarousel() {
   }, [currentIndex, isAutoPlaying]);
 
   return (
-    <div className="relative h-[60vh] w-full overflow-hidden">
+    <div className="relative h-[calc(70vh)] md:h-[calc(75vh)] lg:h-[calc(80vh)] w-full overflow-hidden mt-16">
       {/* Images */}
       <div className="relative h-full">
         {heroImages.map((image, index) => (

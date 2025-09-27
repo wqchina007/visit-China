@@ -307,4 +307,173 @@ export const cities: City[] = [
       ],
     },
   },
+  {
+    id: 'xian',
+    slug: 'xian',
+    name: {
+      en: "Xi'an",
+      zh: '西安',
+    },
+    description: "Xi'an, the ancient capital of China, is home to the world-famous Terracotta Army and the starting point of the Silk Road. With over 3,000 years of history, it offers incredible historical sites and authentic Chinese culture.",
+    imageUrl: '/images/cities/xian.jpg',
+    attractions: [
+      {
+        id: 'terracotta-army',
+        name: {
+          en: 'Terracotta Army',
+          zh: '兵马俑',
+        },
+        description: 'One of the greatest archaeological discoveries of the 20th century, featuring thousands of life-sized clay soldiers guarding Emperor Qin Shi Huang\'s tomb.',
+        imageUrl: '/images/attractions/terracotta-army.jpg',
+        openingHours: '8:30 AM - 5:00 PM',
+        ticketPrice: {
+          amount: 120,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'city-wall',
+        name: {
+          en: 'Xi\'an City Wall',
+          zh: '西安城墙',
+        },
+        description: 'The most complete city wall surviving in China, dating back to the Ming Dynasty. Perfect for cycling or walking with panoramic city views.',
+        imageUrl: '/images/attractions/xian-city-wall.jpg',
+        openingHours: '8:00 AM - 10:00 PM',
+        ticketPrice: {
+          amount: 54,
+          currency: 'CNY',
+        },
+      },
+      {
+        id: 'muslim-quarter',
+        name: {
+          en: 'Muslim Quarter',
+          zh: '回民街',
+        },
+        description: 'A vibrant historic district with traditional architecture, authentic street food, and the Great Mosque. Perfect for food lovers and culture enthusiasts.',
+        imageUrl: '/images/attractions/muslim-quarter.jpg',
+        openingHours: 'Always open',
+        ticketPrice: {
+          amount: 0,
+          currency: 'CNY',
+        },
+      },
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'Spring (March-May) and Autumn (September-November) offer pleasant weather for exploring historical sites.',
+      transportation: {
+        airport: 'Xi\'an Xianyang International Airport (XIY)',
+        trainStation: 'Xi\'an Railway Station',
+        localTransport: [
+          'Metro - modern subway system covering major attractions',
+          'Bus - extensive public transport network',
+          'Taxi - affordable and convenient',
+        ],
+      },
+      weatherInfo: 'Continental monsoon climate with four distinct seasons. Hot summers, cold winters, and pleasant spring/autumn.',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+        {
+          english: 'How much?',
+          chinese: '多少钱',
+          pronunciation: 'Duōshao qián',
+        },
+      ],
+    },
+  },
+  {
+    id: 'hongkong',
+    slug: 'hongkong',
+    name: {
+      en: 'Hong Kong',
+      zh: '香港',
+    },
+    description: 'Hong Kong is a vibrant metropolis where East meets West, featuring stunning skylines, world-class shopping, delicious cuisine, and beautiful natural landscapes. A perfect blend of modern city life and traditional culture.',
+    imageUrl: '/images/cities/hongkong.jpg',
+    attractions: [
+      {
+        id: 'victoria-peak',
+        name: {
+          en: 'Victoria Peak',
+          zh: '太平山顶',
+        },
+        description: 'The highest point on Hong Kong Island offering breathtaking panoramic views of the city skyline and Victoria Harbour. Take the historic Peak Tram for an unforgettable experience.',
+        imageUrl: '/images/attractions/victoria-peak.jpg',
+        openingHours: '7:00 AM - 11:00 PM',
+        ticketPrice: {
+          amount: 99,
+          currency: 'HKD',
+        },
+      },
+      {
+        id: 'temple-street',
+        name: {
+          en: 'Temple Street Night Market',
+          zh: '庙街夜市',
+        },
+        description: 'A bustling night market famous for street food, fortune tellers, and bargain shopping. Experience authentic Hong Kong street culture and local delicacies.',
+        imageUrl: '/images/attractions/temple-street.jpg',
+        openingHours: '4:00 PM - 11:00 PM',
+        ticketPrice: {
+          amount: 0,
+          currency: 'HKD',
+        },
+      },
+      {
+        id: 'tian-tan-buddha',
+        name: {
+          en: 'Tian Tan Buddha',
+          zh: '天坛大佛',
+        },
+        description: 'A majestic 34-meter tall bronze Buddha statue on Lantau Island, accessible via the scenic Ngong Ping 360 cable car. A spiritual and cultural landmark.',
+        imageUrl: '/images/attractions/tian-tan-buddha.jpg',
+        openingHours: '10:00 AM - 5:30 PM',
+        ticketPrice: {
+          amount: 75,
+          currency: 'HKD',
+        },
+      },
+    ],
+    practicalInfo: {
+      bestTimeToVisit: 'October to December and March to May offer comfortable weather and clear skies.',
+      transportation: {
+        airport: 'Hong Kong International Airport (HKG)',
+        trainStation: 'Hong Kong Station',
+        localTransport: [
+          'MTR - world-class subway system',
+          'Trams - historic double-decker trams',
+          'Ferries - scenic harbor crossings',
+          'Octopus card - universal payment system',
+        ],
+      },
+      weatherInfo: 'Subtropical climate with hot humid summers and mild winters. Typhoon season June-October.',
+      usefulPhrases: [
+        {
+          english: 'Hello',
+          chinese: '你好',
+          pronunciation: 'Nǐ hǎo',
+        },
+        {
+          english: 'Thank you',
+          chinese: '谢谢',
+          pronunciation: 'Xièxiè',
+        },
+        {
+          english: 'Excuse me',
+          chinese: '唔该',
+          pronunciation: 'M̀hgōi',
+        },
+      ],
+    },
+  },
 ];

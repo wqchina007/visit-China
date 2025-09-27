@@ -73,7 +73,7 @@ export default async function CityPage({ params }: CityPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[70vh] bg-gray-900">
+      <div className="relative h-[calc(75vh)] md:h-[calc(80vh)] lg:h-[calc(85vh)] bg-gray-900 mt-16">
         <div className="absolute inset-0">
           <img 
             src={city.imageUrl} 
