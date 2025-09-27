@@ -12,12 +12,11 @@ const images = [
   'public/images/cities/xian.jpg'
 ];
 
-async function compressUltra() {
-  console.log('Starting ultra compression to under 1MB...\n');
+async function compressImages() {
+  console.log('Starting compression for Xi\'an and Hong Kong images...\n');
   
   let totalOriginal = 0;
   let totalCompressed = 0;
-  let under1MBCount = 0;
   
   for (const imagePath of images) {
     try {
@@ -30,7 +29,7 @@ async function compressUltra() {
       console.log(`Original: ${(originalSize/1024/1024).toFixed(1)}MB`);
       
       // Create backup
-      const backupPath = fullPath.replace(/\.(jpg|jpeg|png)$/i, '.backup-ultra.$1');
+      const backupPath = fullPath.replace(/\.(jpg|jpeg|png)$/i, '.backup.$1');
       if (!fs.existsSync(backupPath)) {
         fs.copyFileSync(fullPath, backupPath);
       }
@@ -38,15 +37,12 @@ async function compressUltra() {
       const image = sharp(fullPath);
       const metadata = await image.metadata();
       
-      // Try different quality levels to get under 1MB
-      let quality = 65;
       let compressedBuffer;
-      let newSize;
       
-      while (quality >= 45) {
+      if (metadata.format === 'jpeg') {
         compressedBuffer = await image
           .jpeg({
-            quality: quality,
+            quality: 75,
             progressive: true,
             mozjpeg: true,
             trellisQuantisation: true,
@@ -55,43 +51,26 @@ async function compressUltra() {
             optimiseCoding: true
           })
           .toBuffer();
-        
-        newSize = compressedBuffer.length;
-        
-        if (newSize <= 1024 * 1024) { // Under 1MB
-          break;
-        }
-        
-        quality -= 5;
-      }
-      
-      // If still over 1MB, use more aggressive settings
-      if (newSize > 1024 * 1024) {
+      } else if (metadata.format === 'png') {
         compressedBuffer = await image
-          .jpeg({
-            quality: 45,
-            progressive: true,
-            mozjpeg: true,
-            trellisQuantisation: true,
-            overshootDeringing: true,
-            optimiseScans: true,
-            optimiseCoding: true
+          .png({
+            quality: 75,
+            compressionLevel: 9,
+            adaptiveFiltering: false,
+            effort: 10
           })
           .toBuffer();
-        newSize = compressedBuffer.length;
+      } else {
+        console.log(`Skipping ${imagePath} - unsupported format`);
+        continue;
       }
       
       fs.writeFileSync(fullPath, compressedBuffer);
+      const newSize = fs.statSync(fullPath).size;
       totalCompressed += newSize;
       
       const savings = ((originalSize - newSize) / originalSize * 100).toFixed(1);
-      const under1MB = newSize <= 1024 * 1024;
-      
-      if (under1MB) {
-        under1MBCount++;
-      }
-      
-      console.log(`✓ ${imagePath}: ${(originalSize/1024/1024).toFixed(1)}MB → ${(newSize/1024/1024).toFixed(1)}MB (${savings}% reduction) ${under1MB ? '✅ Under 1MB' : '⚠️ Still over 1MB'}`);
+      console.log(`✓ ${imagePath}: ${(originalSize/1024/1024).toFixed(1)}MB → ${(newSize/1024/1024).toFixed(1)}MB (${savings}% reduction)`);
       
     } catch (error) {
       console.error(`Error processing ${imagePath}:`, error.message);
@@ -100,7 +79,6 @@ async function compressUltra() {
   
   const totalSavings = ((totalOriginal - totalCompressed) / totalOriginal * 100).toFixed(1);
   console.log(`\n✅ Total compression: ${(totalOriginal/1024/1024).toFixed(1)}MB → ${(totalCompressed/1024/1024).toFixed(1)}MB (${totalSavings}% reduction)`);
-  console.log(`✅ Images under 1MB: ${under1MBCount}/${images.length}`);
 }
 
-compressUltra().catch(console.error);
+compressImages().catch(console.error);
