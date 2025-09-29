@@ -1,0 +1,83 @@
+{
+  "title": "2024 China Visa-Free Travel Guide",
+  "description": "Explore our detailed 2024 China visa-free travel guide. Learn about China's latest visa-free policies, transit visa-free options, and find answers to common questions.",
+  "sections": {
+    "visaPolicies": {
+      "title": "China Visa-Free Policies",
+      "description": "China's visa-free policies allow travelers from specific countries to enter China without a visa for short-term stays. These policies aim to simplify entry procedures for tourists, business visitors, and others, promoting more travel and cooperation."
+    },
+    "visaFreeCountries": {
+      "title": "Visa-Free Countries",
+      "description": "Ordinary passport holders from the following countries can enter China visa-free for stays not exceeding the specified visa-free periods."
+    },
+    "entryProcess": {
+      "title": "Entry Process",
+      "steps": {
+        "step1": {
+          "title": "Fill out Entry Card",
+          "description": "Upon arrival at the airport, obtain and complete the entry card with personal information including name, passport number, flight details, purpose of visit, and residential address. Ensure to select the visa-free option."
+        },
+        "step2": {
+          "title": "Fingerprint Collection",
+          "description": "Use self-service kiosks to submit fingerprints and print vouchers. If you have previously submitted fingerprints, you only need to print the voucher."
+        },
+        "step3": {
+          "title": "Customs Clearance",
+          "description": "Submit your passport and completed entry card to customs officials. Answer any questions and confirm your stay duration in China."
+        },
+        "step4": {
+          "title": "Collect Luggage",
+          "description": "After customs clearance, follow signs to the baggage claim area to collect your luggage and complete the entry process."
+        }
+      }
+    },
+    "transitPolicies": {
+      "title": "China Transit Visa-Free Policies",
+      "description": "China offers visa-free transit policies for eligible travelers from specific countries, allowing stays of up to 240 hours (10 days) when transiting to a third country or region."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "q1": {
+          "question": "Do foreigners need to pre-register with Chinese embassies or consulates before departure under the visa-free policy?",
+          "answer": "No pre-registration with Chinese embassies or consulates is required under the visa-free policy."
+        },
+        "q2": {
+          "question": "Will Chinese border control verify my purpose of visit? What additional documents do I need besides my passport?",
+          "answer": "Yes, they will verify your purpose of visit. It is recommended to carry supporting documents such as itinerary, hotel booking confirmations, and return tickets."
+        },
+        "q3": {
+          "question": "Are there any special requirements for minors entering China under the visa-free policy?",
+          "answer": "Minors have the same requirements as adults, but it is recommended to carry birth certificates or guardian consent letters."
+        },
+        "q4": {
+          "question": "What are the requirements regarding travel document types and validity?",
+          "answer": "A valid passport is required, and the passport validity must meet the specified requirements."
+        },
+        "q5": {
+          "question": "How is the 15-day stay duration calculated?",
+          "answer": "The duration is calculated from the day of entry, including both entry and departure days."
+        },
+        "q6": {
+          "question": "Can I depart from a country other than my own under the visa-free policy?",
+          "answer": "Yes, the visa-free policy does not restrict the departure country."
+        },
+        "q7": {
+          "question": "Does the visa-free policy apply to all entry methods, including land, sea, and air?",
+          "answer": "Yes, it applies to land, sea, and air entry methods."
+        },
+        "q8": {
+          "question": "Can I extend my stay if I exceed the visa-free period?",
+          "answer": "For extensions due to force majeure, you should apply to the local public security bureau's exit-entry administration department."
+        }
+      }
+    }
+  },
+  "countries": {
+    "90days": ["Albania", "Armenia", "Bosnia and Herzegovina", "San Marino"],
+    "60days": ["Mauritius"],
+    "30daysLongTerm": ["Thailand", "Singapore", "Maldives", "Kazakhstan", "Antigua and Barbuda", "UAE", "Barbados", "Bahamas", "Belarus", "Dominica", "Ecuador", "Fiji", "Grenada", "Qatar", "Serbia", "Seychelles", "Suriname", "Tonga", "Georgia", "Brunei", "Mongolia"],
+    "30daysUntil2025": ["France", "Germany", "Italy", "Netherlands", "Spain", "Malaysia", "Switzerland", "Ireland", "Hungary", "Austria", "Belgium", "Luxembourg", "Australia", "New Zealand", "Poland", "Portugal", "Greece", "Cyprus", "Slovenia", "Slovakia", "Norway", "Finland", "Denmark", "Iceland", "Andorra", "Monaco", "Liechtenstein", "South Korea", "Bulgaria", "Romania", "Malta", "Croatia", "Montenegro", "North Macedonia", "Estonia", "Latvia", "Japan"],
+    "transit": ["Albania", "Argentina", "Australia", "Austria", "Belarus", "Belgium", "Brazil", "Brunei", "Bulgaria", "Canada", "Chile", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Japan", "South Korea", "Latvia", "Lithuania", "Luxembourg", "Malta", "Mexico", "Monaco", "Montenegro", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Serbia", "Singapore", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "UAE", "United Kingdom", "United States"]
+  }
+}
