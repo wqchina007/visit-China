@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MagnifyingGlassIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import clsx from 'clsx';
+import SearchBox from './SearchBox';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,17 +45,8 @@ export default function Navbar() {
           </div>
 
           {/* Search - Desktop */}
-          <div className="hidden lg:flex items-center">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <MagnifyingGlassIcon className="h-4 w-4 text-white/60" />
-              </div>
-              <input
-                type="text"
-                className="w-48 pl-8 pr-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white placeholder-white/60 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-                placeholder="Search..."
-              />
-            </div>
+          <div className="hidden lg:flex items-center space-x-4">
+            <SearchBox />
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,16 +78,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="px-3 py-2">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <MagnifyingGlassIcon className="h-4 w-4 text-white/60" />
-                </div>
-                <input
-                  type="text"
-                  className="w-full pl-8 pr-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-                  placeholder="Search destinations..."
-                />
-              </div>
+              <SearchBox />
             </div>
           </div>
         </div>
