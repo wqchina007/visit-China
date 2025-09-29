@@ -2,83 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Comprehensive China Visa-Free Travel Guide 2024 | Visit China",
-  description: "Explore our detailed China Visa-Free Travel Guide for 2024. Discover China's latest visa exemption policies, transit visa-free options, and find answers to common questions.",
-};
-
-// Country flag mappings
-const countryFlags: { [key: string]: string } = {
-  '阿尔巴尼亚': '🇦🇱',
-  '亚美尼亚': '🇦🇲',
-  '波黑': '🇧🇦',
-  '圣马力诺': '🇸🇲',
-  '毛里求斯': '🇲🇺',
-  '泰国': '🇹🇭',
-  '新加坡': '🇸🇬',
-  '马尔代夫': '🇲🇻',
-  '哈萨克斯坦': '🇰🇿',
-  '安提瓜和巴布达': '🇦🇬',
-  '阿联酋': '🇦🇪',
-  '巴巴多斯': '🇧🇧',
-  '巴哈马': '🇧🇸',
-  '白俄罗斯': '🇧🇾',
-  '多米尼克': '🇩🇲',
-  '厄瓜多尔': '🇪🇨',
-  '斐济': '🇫🇯',
-  '格林纳达': '🇬🇩',
-  '卡塔尔': '🇶🇦',
-  '塞尔维亚': '🇷🇸',
-  '塞舌尔': '🇸🇨',
-  '苏里南': '🇸🇷',
-  '汤加': '🇹🇴',
-  '格鲁吉亚': '🇬🇪',
-  '文莱': '🇧🇳',
-  '蒙古': '🇲🇳',
-  '法国': '🇫🇷',
-  '德国': '🇩🇪',
-  '意大利': '🇮🇹',
-  '荷兰': '🇳🇱',
-  '西班牙': '🇪🇸',
-  '马来西亚': '🇲🇾',
-  '瑞士': '🇨🇭',
-  '爱尔兰': '🇮🇪',
-  '匈牙利': '🇭🇺',
-  '奥地利': '🇦🇹',
-  '比利时': '🇧🇪',
-  '卢森堡': '🇱🇺',
-  '澳大利亚': '🇦🇺',
-  '新西兰': '🇳🇿',
-  '波兰': '🇵🇱',
-  '葡萄牙': '🇵🇹',
-  '希腊': '🇬🇷',
-  '塞浦路斯': '🇨🇾',
-  '斯洛文尼亚': '🇸🇮',
-  '斯洛伐克': '🇸🇰',
-  '挪威': '🇳🇴',
-  '芬兰': '🇫🇮',
-  '丹麦': '🇩🇰',
-  '冰岛': '🇮🇸',
-  '安道尔': '🇦🇩',
-  '摩纳哥': '🇲🇨',
-  '列支敦士登': '🇱🇮',
-  '韩国': '🇰🇷',
-  '保加利亚': '🇧🇬',
-  '罗马尼亚': '🇷🇴',
-  '马耳他': '🇲🇹',
-  '克罗地亚': '🇭🇷',
-  '黑山': '🇲🇪',
-  '北马其顿': '🇲🇰',
-  '爱沙尼亚': '🇪🇪',
-  '拉脱维亚': '🇱🇻',
-  '日本': '🇯🇵',
-  '阿根廷': '🇦🇷',
-  '巴西': '🇧🇷',
-  '加拿大': '🇨🇦',
-  '智利': '🇨🇱',
-  '捷克': '🇨🇿',
-  '墨西哥': '🇲🇽',
-  '俄罗斯': '🇷🇺',
-  '英国': '🇬🇧',
-  '美国': '🇺🇸'
+  description: "Explore our detailed China Visa-Free Travel Guide for 2024. Discover China&apos;s latest visa exemption policies, transit visa-free options, and find answers to common questions.",
 };
 
 export default function VisaFreePage() {
@@ -90,7 +14,7 @@ export default function VisaFreePage() {
             Comprehensive China Visa-Free Travel Guide 2024
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Welcome, travelers! Whether you're planning a short trip or a pleasant layover in China, you've come to the right place. Our Comprehensive China Visa-Free Travel Guide is designed for passport holders seeking hassle-free entry into China. Explore various visa exemption options, understand how China has streamlined its entry policies, and embark on your adventure without the need for a visa. Make your journey to China smooth and enjoyable with our detailed insights and practical tips.
+            Welcome, travelers! Whether you&apos;re planning a short trip or a pleasant layover in China, you&apos;ve come to the right place. Our Comprehensive China Visa-Free Travel Guide is designed for passport holders seeking hassle-free entry into China. Explore various visa exemption options, understand how China has streamlined its entry policies, and embark on your adventure without the need for a visa. Make your journey to China smooth and enjoyable with our detailed insights and practical tips.
           </p>
         </div>
 
@@ -99,19 +23,19 @@ export default function VisaFreePage() {
           <nav className="mt-6 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Table of Contents</h2>
             <ul className="space-y-2 text-gray-700">
-              <li><a href="#visa-policies" className="hover:text-blue-600 hover:underline">China's Visa Exemption Policies</a></li>
+              <li><a href="#visa-policies" className="hover:text-blue-600 hover:underline">China&apos;s Visa Exemption Policies</a></li>
               <li><a href="#visa-free-countries" className="hover:text-blue-600 hover:underline">Visa-Exempt Countries</a></li>
               <li><a href="#entry-process" className="hover:text-blue-600 hover:underline">Entry Process</a></li>
-              <li><a href="#transit-policies" className="hover:text-blue-600 hover:underline">China's Visa-Free Transit Policies</a></li>
+              <li><a href="#transit-policies" className="hover:text-blue-600 hover:underline">China&apos;s Visa-Free Transit Policies</a></li>
               <li><a href="#faq" className="hover:text-blue-600 hover:underline">FAQs</a></li>
             </ul>
           </nav>
 
           {/* Visa Policies Section */}
           <section id="visa-policies" className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">China's Visa Exemption Policies</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">China&apos;s Visa Exemption Policies</h2>
             <p className="text-lg text-gray-600 mb-8">
-              China's Visa Exemption Policies allow travelers from selected countries to enter China without obtaining a visa for short-term stays. These policies aim to simplify the entry process for tourists, business visitors, and others, fostering increased travel and collaboration.
+              China&apos;s Visa Exemption Policies allow travelers from selected countries to enter China without obtaining a visa for short-term stays. These policies aim to simplify the entry process for tourists, business visitors, and others, fostering increased travel and collaboration.
             </p>
           </section>
 
@@ -277,7 +201,7 @@ export default function VisaFreePage() {
 
           {/* Transit Policies Section */}
           <section id="transit-policies" className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">China's Visa-Free Transit Policies</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">China&apos;s Visa-Free Transit Policies</h2>
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
               <p className="text-lg text-gray-600 mb-6">
                 China offers visa-free transit for eligible travelers from select countries, allowing stays of up to 240 hours (10 days) when traveling to a third country or region. With the recent expansion of the visa-free policy, travelers can now enter through any of 60 open ports across 24 provinces, making it a great opportunity to explore China during a short stopover without the need for a visa.
