@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# 可选，但推荐：添加你的站点地图地址
 Sitemap: https://visit-china-brown.vercel.app/sitemap.xml
