@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-
 <url>
   <loc>https://visit-china-brown.vercel.app/</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/visa-free</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/beijing</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/shanghai</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/xian</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/hongkong</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/chengdu</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://visit-china-brown.vercel.app/cities/hangzhou</loc>
-  <lastmod>2025-10-01T13:03:27+00:00</lastmod>
+  <lastmod>2025-10-01</lastmod>
   <priority>0.80</priority>
 </url>
-
-
 </urlset>
